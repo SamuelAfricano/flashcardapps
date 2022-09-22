@@ -1,0 +1,11 @@
+<form method="post">
+    {% csrf_token %}
+
+    <input type="hidden" name="id_do_cartao" value="{{ cartao.id }}">
+    <input type="hidden" name="resposta" value="{{ resposta }}">
+    {% if resposta %}
+        <input type="submit" value="✅ Eu sei!" style="width: 25%;" class="w3-padding w3-margin-bottom" />
+    {% else %}
+        <input type="submit" value="❌ Não sei." style="width: 25%;" class="w3-padding" />
+    {% endif %}
+</form>

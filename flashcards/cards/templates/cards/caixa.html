@@ -1,0 +1,11 @@
+{% extends "cards/base.html" %}
+{% load humanize %}
+
+{% block content %}
+	<h2>{{ num_da_caixa | ordinal }} Caixa</h2>
+	<mark>{{ object_list | length }} Cartão{{object_list | pluralize}} a esquerda</mark>
+	<hr>
+	{% if check_card %}
+		{% include "cards/card.html" with cartao=check_card %}
+	{% endif %}
+{% endblock %}

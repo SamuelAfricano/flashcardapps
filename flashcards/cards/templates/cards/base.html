@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/w3.css' %}">
+</head>
+<style>
+    /* Custom CSS */
+
+    :root {
+        --accent: #6e48ad;
+        --accent-bg: white;
+        --bg: #fff;
+        --text: #212121;
+        --text-light: #585858;
+        --border: #d8dae1;
+        --code: #d81b60;
+        --preformatted: #444;
+    }
+
+    article {
+        background-color: var(--marked);
+        border: 1px solid var(--border);
+        border-radius: 5px;
+        padding: 1em;
+        margin: 1em 0;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    h2, h4 {
+        margin-top: 0;
+    }
+
+    hr {
+        background: var(--accent);
+        border-color: var(--accent);
+    }
+
+    button,
+    a[role="button"] {
+        color: white;
+        text-decoration: none;
+    }
+    a{
+        text-decoration: none;
+    }
+
+    input, select, textarea {
+        width: 100%;
+    }
+    #id_questao, #id_resposta, #id_caixa{
+        border: 1px solid gray;
+        border-radius: 3px;
+        padding: 9px;
+    }
+</style>
+
+<body>
+    <header class="w3-padding-large w3-blue">
+        <h1>
+            <a href="{% url 'card-list' %}" class="w3-hover-text-white">Flashcards app</a>
+        </h1>
+        {% include "cards/navigation.html" %}
+    </header>
+    <main  style="max-width: 60%; margin:16px auto;">
+        {% block content%}
+            <h2>Bem Vindo ao Flashcards !!</h2>
+        {% endblock %}
+    </main>    
+</body>
+
+</html>

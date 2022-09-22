@@ -1,0 +1,19 @@
+<!-- Representação dos cartões -->
+<article>
+    <h4>{{cartao.questao}}</h4>
+    {% if not check_card %}
+        <p>{{ cartao.resposta }}</p>
+        <hr>
+        <a href="{% url 'card-update' cartao.id %}">
+            ✏️ Editar Cartão
+        </a>
+    {% else %}
+       <details>
+           <summary>Revelar Resposta</summary>
+           <p>{{ cartao.resposta }}</p>
+       </details>
+       <hr>
+       {% include "cards/card_check_form.html" with resposta=True %}
+       {% include "cards/card_check_form.html" with resposta=False %}
+    {% endif %}
+</article>

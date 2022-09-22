@@ -1,0 +1,17 @@
+{% extends "cards/base.html" %}
+
+{% block content %}
+    {% if card %}
+        <h2>✏️ Editar cartão</h2>
+    {% else %}
+        <h2>✨ Criar novo cartão !</h2>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Salvar Cartão" class="w3-btn ">
+    </form>
+    <a href="{% url 'card-list' %}" class="w3-btn w3-red w3-padding w3-margin-top">
+        Cancelar
+    </a>
+{% endblock %}
